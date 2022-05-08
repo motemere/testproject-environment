@@ -1,0 +1,24 @@
+version: '3'
+services:
+
+  logger:
+    image: umputun/docker-logger
+    container_name: "logger"
+    hostname: "logger"
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    environment:
+      - LOG_FILES=true
+      - LOG_SYSLOG=false
+      - EXCLUDE=docker-logger
+      - MAX_FILES=10
+      - MAX_SIZE=50
+      - MAX_AGE=20
+      - DEBUG=false
+    volumes:
+      - ./logs/logger_logs:/srv/logs
+      - //var/run/docker.sock:/var/run/docker.sock

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+
+  db:
+    image: mariadb:10.7.3
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: mariadbrootpsswrd
+      MARIADB_DATABASE: testproject-db
+      MARIADB_USER: testproject
+      MARIADB_PASSWORD: testproject
+    volumes: 
+      - ./init-db:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    networks:
+      - testproject
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - testproject
