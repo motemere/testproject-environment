@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  endproxy:
+    image: motemere/endproxy:latest
+    environment:
+      - SPRING_KAFKA_BOOTSTRAP-SERVERS=kafka:9092
+      - OPENTRACING_JAEGER_UDP-SENDER_HOST=jaeger
+      - OPENTRACING_JAEGER_UDP-SENDER_PORT=6831
+      - TOPIC_NAME=testproject
+      - ENTRYPOINT.URL=http://entrypoint:8083/api/v1/store/
+    ports:
+      - 8099:8099
+    networks:
+      - testproject
+    depends_on:
+      - kafka

@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  entrypoint:
+    image: motemere/entrypoint:latest
+    environment:
+      - WEBSOCKET_URI=ws://middleproxy:8090/messages
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://db:3306/testproject-db
+      - SPRING_DATASOURCE_USERNAME=testproject
+      - SPRING_DATASOURCE_PASSWORD=testproject
+      - OPENTRACING_JAEGER_UDP-SENDER_HOST=jaeger
+      - OPENTRACING_JAEGER_UDP-SENDER_PORT=6831
+    ports:
+      - 8083:8083
+    networks:
+      - testproject
+    depends_on:
+      - db
+      - middleproxy
