@@ -2,7 +2,7 @@ version: '3'
 
 services:
   middleproxy:
-    image: motemere/middleproxy:latest
+    image: motemere/testproject-middleproxy:latest
     environment:
       - KAFKA_BOOTSTRAPADDRESS=kafka:9092
       - OPENTRACING_JAEGER_UDP-SENDER_HOST=jaeger
