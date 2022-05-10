@@ -17,7 +17,3 @@ make run-db-only
 ```bash
 make run-all
 ```
-
-## Soon
-
-All components in containers
