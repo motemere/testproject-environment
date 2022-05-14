@@ -2,7 +2,7 @@ version: '3'
 
 services:
   entrypoint:
-    image: motemere/testproject-entrypoint:latest
+    image: motemere/testproject-entrypoint:0.0.1-SNAPSHOT
     environment:
       - WEBSOCKET_URI=ws://middleproxy:8090/messages
       - SPRING_DATASOURCE_URL=jdbc:mariadb://db:3306/testproject-db
@@ -15,5 +15,6 @@ services:
     networks:
       - testproject
     depends_on:
+      - jaeger
       - db
       - middleproxy

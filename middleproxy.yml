@@ -2,11 +2,11 @@ version: '3'
 
 services:
   middleproxy:
-    image: motemere/testproject-middleproxy:latest
+    image: motemere/testproject-middleproxy:0.0.1-SNAPSHOT
     environment:
       - KAFKA_BOOTSTRAPADDRESS=kafka:9092
-      - OPENTRACING_JAEGER_UDP-SENDER_HOST=jaeger
-      - OPENTRACING_JAEGER_UDP-SENDER_PORT=6831
+      - OPENTRACING_JAEGER_UDP_SENDER_HOST=jaeger
+      - OPENTRACING_JAEGER_UDP_SENDER_PORT=6831
       - MESSAGE_TOPIC_NAME=testproject
     ports:
       - 8090:8090
