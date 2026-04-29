@@ -4,6 +4,9 @@ run-db-only:
 stop-db-only:
 	docker-compose -f mariadb.yml -f logger.yml -f network.yml down -v
 
+clean-db-data:
+	sudo rm -Rf db_data/*
+
 clean-logs:
 	sudo rm -Rf logs/logger_logs
 
