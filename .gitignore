@@ -1,4 +1,8 @@
+.idea
 logs/
+prometheus_data
+grafana_data
+tempo_data
 kafka-persistence/
 .vscode/
 db_data

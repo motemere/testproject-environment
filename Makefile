@@ -10,6 +10,11 @@ clean-db-data:
 clean-logs:
 	sudo rm -Rf logs/logger_logs
 
+clean-monitoring-data:
+	sudo rm -Rf prometheus_data/*
+	sudo rm -Rf tempo_data/*
+	sudo rm -Rf grafana_data/*
+
 run-all:
 	docker-compose -f mariadb.yml -f logger.yml -f network.yml -f jaeger.yml -f kafka.yml -f entrypoint.yml -f middleproxy.yml -f endproxy.yml up -d
 
