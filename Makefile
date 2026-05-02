@@ -16,7 +16,7 @@ clean-monitoring-data:
 	sudo rm -Rf grafana_data/*
 
 run-all:
-	docker-compose -f mariadb.yml -f logger.yml -f network.yml -f jaeger.yml -f kafka.yml -f entrypoint.yml -f middleproxy.yml -f endproxy.yml up -d
+	docker-compose -f mariadb.yml -f logger.yml -f network.yml -f monitoring.yml -f kafka.yml -f entrypoint.yml -f middleproxy.yml -f endproxy.yml up -d
 
 stop-all:
-	docker-compose -f mariadb.yml -f logger.yml -f network.yml -f jaeger.yml -f kafka.yml -f entrypoint.yml -f middleproxy.yml -f endproxy.yml down -v
+	docker-compose -f mariadb.yml -f logger.yml -f network.yml -f monitoring.yml -f kafka.yml -f entrypoint.yml -f middleproxy.yml -f endproxy.yml down -v
