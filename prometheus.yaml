@@ -6,3 +6,12 @@ scrape_configs:
     static_configs:
       - targets: ['host.docker.internal:8083']
     metrics_path: '/actuator/prometheus'
+  - job_name: 'middleproxy'
+    static_configs:
+      - targets: ['host.docker.internal:8090']
+    metrics_path: '/actuator/prometheus'
+  - job_name: 'endproxy'
+    static_configs:
+      - targets: ['host.docker.internal:8099']
+    metrics_path: '/actuator/prometheus'
+
